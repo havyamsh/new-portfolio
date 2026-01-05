@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Havyamsh | Portfolio</title>
+<link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= ROOT ================= */
+:root {
+  --bg-color: #000;
+  --text-color: #ffffff;
+  --main-color: #00abf0;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100vh;
+  font-family: 'Poppins';
+  color: var(--text-color);
+  background:
+    radial-gradient(circle at 20% 20%, #0f2027, transparent 40%),
+    radial-gradient(circle at 80% 30%, #203a43, transparent 45%),
+    radial-gradient(circle at 50% 80%, #000, #000);
+  overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(16px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+nav ul {
+  display: flex;
+  gap: 35px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 17px;
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--main-color), transparent);
+  transition: width 0.4s ease;
+}
+
+nav ul li a:hover {
+  color: var(--main-color);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 100vh;
+  padding: 140px 8% 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+/* ================= NAME (TYPE + GLOW) ================= */
+.name {
+  font-size: 58px;
+  font-weight: 700;
+  color: var(--main-color);
+  text-shadow: 0 0 12px #00abf0;
+}
+
+/* TYPEWRITER ONLY ON "Havyamsh" */
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid var(--main-color);
+  white-space: nowrap;
+  width: 0;
+  animation: typingLoop 4s steps(8) infinite, blink 0.8s infinite;
+}
+
+@keyframes typingLoop {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 9ch; /* fully typed "Havyamsh" = 8 letters */
+  }
+  60% {
+    width: 8ch; /* pause */
+  }
+  100% {
+    width: 0; /* delete */
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+
+/* ================= DESCRIPTION ================= */
+.description {
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 1.75;
+  opacity: 0.9;
+}
+
+.description span {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+/* ================= STARFIELD ================= */
+.space,
+.space::before,
+.space::after {
+  position: fixed;
+  inset: -200%;
+  pointer-events: none;
+  content: "";
+}
+
+/* Distant stars */
+.space {
+  background:
+    radial-gradient(1px 1px at 7% 12%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 23% 41%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 39% 18%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 56% 29%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 71% 13%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 88% 37%, rgba(255,255,255,0.5), transparent);
+  animation: drift 240s linear infinite;
+}
+
+/* Mid stars */
+.space::before {
+  background:
+    radial-gradient(2px 2px at 14% 67%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 33% 81%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 49% 63%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 68% 74%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 86% 69%, rgba(255,255,255,0.8), transparent);
+  animation: drift 180s linear infinite reverse;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
+}
+
+/* Foreground glow stars */
+.space::after {
+  background:
+    radial-gradient(3px 3px at 19% 88%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(3px 3px at 42% 92%, rgba(255,255,255,1), transparent),
+    radial-gradient(3px 3px at 64% 87%, rgba(255,255,255,0.95), transparent),
+    radial-gradient(3px 3px at 83% 90%, rgba(255,255,255,1), transparent);
+  animation: drift 120s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.9));
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(30%); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .name {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+span{
+    color:#00abf0;
+}
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    width: 150px;
+    height: 100%;
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50px;
+    font-size: 19px;
+    color: #00abf0;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.btn-box a:hover {
+    color: #ededed;
+}
+/* Social Links */
+.home-sci {
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    transition: background 0.5s ease, color 0.5s ease;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    border-radius: 50%;
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-sci a:hover {
+    color: #ededed;
+}
+
+/*KEYFRAMES ANIMATION */
+@keyframes showRIght{
+    100%{
+        width: 0;
+    }
+}
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.about-img img {
+    max-width: 530px;
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+
+}
+
+.about-text h2 {
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+
+.about-text h4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 15px 0 30px;
+}
+
+.about-text p {
+    color: var(--second-color);
+    font-size: var(--p-font);
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+}
+.services {
+    background: var(--second-bg-color);
+
+}
+
+.main-text {
+    text-align: center;
+}
+
+.main-text p {
+    color: var(--second-color);
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.main-text h2 {
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+
+.services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 5rem;
+}
+
+.box {
+    background: var(--bg-color);
+    padding: 35px 45px;
+    border-radius: 8px;
+    transition: all .45s ease;
+    border-radius: 20px;
+    background-color: #111d22;
+    margin:20px;
+}
+
+.s-icons i {
+    font-size: 32px;
+    margin-bottom: 20px;
+
+}
+
+.box h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.box p {
+    color: var(--second-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.box:hover {
+    transform: translateY(-8px);
+    cursor: pointer;
+    box-shadow: 0 0 12px #00abf0;
+}
+
+.portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 5rem;
+}
+
+.row {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.row img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), #00a6ff);
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 40px;
+    transition: height 0.5s;
+}
+
+.layer h5 {
+    font: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.layer p {
+    color: var(--second-color);
+    font-size: 1rem;
+    line-height: 1.8;
+
+}
+
+.layer i {
+    color: var(--main-color);
+    margin-top: 20px;
+    font-size: 20px;
+    background: var(--text-color);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+}
+
+.row:hover img {
+    transform: scale(1.1);
+
+}
+
+.row:hover .layer {
+    height: 100%;
+}
+
+.contact {
+    background: var(--second-bg-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.contact-text h4 {
+    color: var(--text-color);
+    margin: 18px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-text h2 {
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+
+.contact-text p {
+    color: var(--second-color);
+    font-size: var(--p-font);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.list {
+    margin-bottom: 2.8rem;
+
+}
+
+.list li {
+    margin-bottom: 12px;
+
+}
+
+.list li a {
+    display: block;
+    color: var(--second-color);
+    font-size: 14px;
+    transition: all .45s ease;
+}
+
+.list li a:hover {
+    color: var(--text-color);
+    transform: translateY(5px);
+
+}
+
+.contact-icons i {
+    height: 45px;
+    width: 45px;
+    color: var(--text-color);
+    font-size: 22px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 15px;
+    transition: all .45s ease;
+}
+
+.contact-icons i:hover {
+
+    color: var(--main-color);
+}
+
+.contact-form form {
+    position: relative;
+}
+
+.contact-form form input,
+form textarea {
+    width: 100%;
+    padding: 14px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 240px;
+}
+
+.contact-form .submit {
+    display: inline-block;
+    font-size: 16px;
+    background: var(--main-color);
+    color: var(--text-color);
+    width: 160px;
+    transition: all .45s ease;
+}
+
+.contact-form .submit:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.end {
+    padding: 20px 15%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: var(--bg-color);
+}
+
+.last-text p {
+    color: var(--second-color);
+    font-size: 14px;
+
+}
+
+.top i {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-color);
+    background: var(--main-color);
+}
+
+@media (max-width: 1480px) {
+    header {
+        padding: 12px 2.5%;
+        transition: .1s;
+    }
+
+    section {
+        padding: 110px 3% 60px;
+    }
+
+    .end {
+        padding: 15px 3%;
+    }
+}
+@media (max-width: 1100px){
+    :root{
+        --big-font:4rem;
+        --h2-font:2.5rem;
+        --p-font:1rem;
+        transition: .1s;
+    }
+    .home-text h3{
+        font-size: 2.5rem;
+    }
+    .home{
+        height: 87vh;
+    }
+}
+@media (max-width:920){
+    .about{
+        grid-template-columns: 1fr;
+
+    }
+    .about-img img{
+        width: 300px;
+        height: 500px;
+     border-radius: 100%;
+    }
+    .contact{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 480px){
+    #menu-icon{
+        display: block;
+    }
+    .navlist{
+        position: absolute;
+        top: -1000px;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        transition: all .45s ease;
+
+    }
+    .navlist a{
+        display: block;
+        margin: 17px;
+        font-size: 20px;
+        transition: all .45s ease;
+        color: var(--text-color);
+
+    }
+    .navlist a:hover{
+        color: var(--main-color);
+    }
+    navlist a.active{
+        color: var(--text-color);
+    }
+    .navlist.open{
+        top: 100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space"></div>
+
+<nav>
+  <div class="logo" style="color:white">Develo<span>pe</span>r</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Skills</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span style="color:white; font-size:40px; font-weight: bold;">Hi I'm </span>
+    <h1 class="name">
+      <span class="typing">Havyamsh</span>
+    </h1>
+
+    <p class="description">
+      I am a <span>passionate and skilled professional</span> dedicated to delivering
+      <span>innovative solutions</span> and <span>exceptional results</span> in
+      <span>Web Development, AIML development </span> with a strong focus on creativity, quality,
+      performance, and meaningful digital impact.
+    </p>
+
+    <!-- Bigger glassmorphism circle (420px) – dark blue/black theme -->
+    <div style="
+      position: absolute;
+      right: 4rem;                  /* slightly more space from edge for bigger size */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;                 /* ← increased size */
+      height: 420px;                /* ← increased size */
+      border-radius: 50%;
+      
+      /* Dark blue-black glassmorphism */
+      background: rgba(20, 30, 60, 0.18);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(100, 140, 255, 0.25);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.55),
+        inset 0 0 25px rgba(80, 120, 255, 0.12);
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      animation: float 8s ease-in-out infinite;
+    "
+    onmouseover="this.style.transform='translateY(-50%) scale(1.06)'; this.style.boxShadow='0 25px 70px rgba(0,0,0,0.65), inset 0 0 35px rgba(100,140,255,0.18)';"
+    onmouseout="this.style.transform='translateY(-50%) scale(1)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.55), inset 0 0 25px rgba(80,120,255,0.12)';">
+
+      <!-- Subtle blue shine on hover -->
+      <div style="
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 35% 35%, rgba(100,140,255,0.22) 0%, transparent 65%);
+        opacity: 0;
+        transition: opacity 0.7s ease;
+        pointer-events: none;
+      "
+      onmouseover="this.style.opacity='1';"
+      onmouseout="this.style.opacity='0';"></div>
+
+      <!-- Your photo – adjusted padding for larger circle -->
+      <img 
+        src="WhatsApp Image 2026-01-05 at 3.17.40 PM.jpeg" 
+        alt="Profile photo"
+        onerror="this.src='https://via.placeholder.com/400?text=Image+Not+Found';"
+        style="
+          width: 90%;                   /* slightly less % to keep good spacing */
+          height: 90%;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+          border: 10px solid rgba(120, 160, 255, 0.18);  /* thicker border looks better on big size */
+          box-shadow: inset 0 0 25px rgba(0,0,0,0.6);
+          transition: all 0.5s ease;
+        "
+        onmouseover="this.style.transform='scale(1.04)'; this.style.borderColor='rgba(140,180,255,0.35)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(120,160,255,0.18)';"
+      >
+
+    </div>
+
+    <div class="btn-box">
+      <a href="mailto:havyamshp@gmail.com">Hire Me</a>
+      <a href="https://wa.me/7330742295" target="_blank">Let's Talk</a>
+    </div>
+
+    <div class="home-sci">
+      <a href="https://www.facebook.com/havyamsh.havyamsh"><i class='bx bxl-facebook'></i></a>
+      <a href="https://x.com/havyamsh"><i class='bx bxl-twitter' ></i></a>
+      <a href="https://www.linkedin.com/in/havyamsh-maruthai-52161a269/"><i class='bx bxl-linkedin' ></i></a>
+      <a href="https://github.com/havyamsh"><i class='bx bxl-github'></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Floating animation -->
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(-50%) translateY(0); }
+    50%      { transform: translateY(-50%) translateY(-10px); }
+  }
+</style>
+<!---------about Section --------------->
+<section class="about" id="about" style="padding: 4rem 2rem 4rem 4rem;">  <!-- added extra left padding -->
+
+  <div class="about-img" style="margin-left: 2rem;">   <!-- ← moved box away from left edge -->
+    <!-- Standing rectangular glassmorphism frame -->
+    <div style="
+      position: relative;
+      width: 800px;
+      height: 480px;
+      border-radius: 28px;
+      background: rgba(20, 30, 60, 0.20);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(100, 140, 255, 0.28);
+      box-shadow: 
+        0 16px 48px rgba(0, 0, 0, 0.60),
+        inset 0 0 30px rgba(80, 120, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      animation: floatRect 9s ease-in-out infinite;
+    "
+    onmouseover="this.style.transform='scale(1.06) translateY(-8px)'; this.style.boxShadow='0 30px 80px rgba(0,0,0,0.70), inset 0 0 40px rgba(100,140,255,0.20)';"
+    onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 16px 48px rgba(0,0,0,0.60), inset 0 0 30px rgba(80,120,255,0.14)';">
+
+      <!-- Subtle inner shine/glow on hover -->
+      <div style="
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 40% 30%, rgba(100,140,255,0.24) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        pointer-events: none;
+      "
+      onmouseover="this.style.opacity='1';"
+      onmouseout="this.style.opacity='0';"></div>
+
+      <img 
+        src="pic2.jpeg" 
+        class="pic2"
+        alt="About me photo"
+        onerror="this.src='https://via.placeholder.com/360x480?text=Photo+Not+Found';"
+        style="
+          width: 92%;
+          height: 92%;
+          border-radius: 20px;
+          object-fit: cover;
+          object-position: center;
+          border: 8px solid rgba(120, 160, 255, 0.20);
+          box-shadow: inset 0 0 25px rgba(0,0,0,0.65);
+          transition: all 0.5s ease;
+        "
+        onmouseover="this.style.transform='scale(1.04)'; this.style.borderColor='rgba(140,180,255,0.38)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(120,160,255,0.20)';"
+      >
+    </div>
+  </div>
+
+  <div class="about-text">
+    <h2 style="font-size: 40px;">About <span>Me</span> </h2>
+    <h4><span>Application</span> Developer</h4>
+    <p class="description" style=" font-size: 18px; font-family: 'Poppins';">
+      Explore the <span>top web design and development companies</span> through a curated
+      list of industry leaders delivering high-quality digital solutions.
+      From <span>enterprise-level platforms</span> to <span>startup-focused designs</span>,
+      these firms specialize in <span>custom web solutions</span>, 
+      <span>eCommerce experiences</span>, and <span>mobile-first applications</span>.
+      With <span>24/7 customer support</span>, <span>secure payment integrations</span>,
+      and comprehensive consulting services, they help transform ideas into
+      <span>impactful digital products</span>.
+    </p>
+  </div>
+
+</section>
+
+<!-- Animation unchanged -->
+<style>
+  @keyframes floatRect {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+  }
+</style>
+
+<!-- Required floating animation -->
+<style>
+  @keyframes floatRect {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+  }
+</style>
+
+<!-----------Services Section-------------->
+	<section class="services" id="services">
+	<div class="main-text">
+		<h2 style="font-size: 40px;"> <span>My</span> Services</h2>
+	</div>
+	<div class="services-content">
+		<div class="box">
+			<div class="s-icons">
+				<i class='bx bx-mobile-alt'></i>
+			</div>
+			<h3>Web Design</h3>
+			<p>I deliver end-to-end web development solutions, blending sleek front-end designs with powerful back-end functionality. Using modern frameworks, I ensure scalable and efficient applications tailored to your needs.</p>
+			
+		</div>
+
+		<div class="box">
+			<div class="s-icons">
+				<i class='bx bx-code-alt'></i>
+			</div>
+			<h3>Creative Design</h3>
+			<p>From concept to deployment, I craft websites that are visually stunning and technically robust. Let me help you bring your ideas to life with seamless, user-focused web experiences.</p>
+			
+		</div>
+
+		<div class="box">
+			<div class="s-icons">
+				<i class='bx bx-edit-alt'></i>
+			</div>
+			<h3>Creative Design</h3>
+			<p>I specialize in creating responsive, dynamic, and secure web applications. My full-stack expertise ensures a smooth journey from design to launch.</p>
+			
+		</div>
+	</div>
+
+</section>
+
+<!-----------Portfolio Section--------------->
+<section class="portfolio" id="portfolio" style="padding: 4rem 2rem; background: rgba(10, 15, 30, 0.4);">
+  <div class="main-text" style="text-align: center; margin-bottom: 3rem;">
+    <h2 style="font-size: 40px; color: #fff;">
+      Latest <span style="color: #24a5ef;">Projects</span>
+    </h2>
+  </div>
+
+  <div class="portfolio-content" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  ">
+    <!-- Project 1 -->
+    <div class="portfolio-card" onclick="window.open('https://github.com/havyamsh/EXPO-PLANET');" style="cursor: pointer;">
+      <div class="card-image">
+        <img src="astral-concept-wallpaper.jpg" alt="Exo Planet Detection">
+      </div>
+      <div class="card-overlay">
+        <h5>EXO PLANET - DETECTION</h5>
+        <p>Advanced exoplanet detection system using data analysis and visualization.</p>
+        <a class="external-link"><i class="bx bx-link-external"></i></a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="portfolio-card" onclick="window.open('https://github.com/havyamsh/onboard-analysis');" style="cursor: pointer;">
+      <div class="card-image">
+        <img src="representation-user-experience-interface-design.jpg" alt="Project 2">
+      </div>
+      <div class="card-overlay">
+        <h5>Onboard analysis</h5>
+        <p>An onboard analytics system that predicts user drop-off points.</p>
+        <a class="external-link"><i class="bx bx-link-external"></i></a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="portfolio-card" onclick="window.open('https://github.com/havyamsh/CogniCure');" style="cursor: pointer;">
+      <div class="card-image">
+        <img src="futuristic-representation-robotic-human-heart.jpg" alt="Project 3">
+      </div>
+      <div class="card-overlay">
+        <h5>CogniCure</h5>
+        <p>A digital health assistant that helps users follow healthy daily dos and don’ts.</p>
+        <a class="external-link"><i class="bx bx-link-external"></i></a>
+      </div>
+    </div>
+
+    <!-- Add more projects similarly (up to 6) -->
+    <div class="portfolio-card" onclick="window.open('https://github.com/havyamsh/AI-Driven---Grievance-Analyzer');" style="cursor: pointer;">
+      <div class="card-image">
+        <img src="34599.jpg" alt="Project 4">
+      </div>
+      <div class="card-overlay">
+        <h5>AI Driven Grievance Analyzer</h5>
+        <p>Clean and intuitive mobile application interface design.</p>
+        <a class="external-link"><i class="bx bx-link-external"></i></a>
+      </div>
+    </div>
+
+    
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+    background: rgba(20, 30, 60, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(110, 142, 251, 0.2);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .portfolio-card:hover .card-image img {
+    transform: scale(1.1);
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 15, 40, 0.95), transparent);
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(60%);
+    transition: transform 0.4s ease;
+    color: white;
+  }
+
+  .portfolio-card:hover .card-overlay {
+    transform: translateY(0);
+  }
+
+  .card-overlay h5 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #79bfe7;
+  }
+
+  .card-overlay p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+  }
+
+  .external-link {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.6rem;
+    color: #24a5ef;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .portfolio-card:hover .external-link {
+    opacity: 1;
+  }
+</style>
+
+<!------------------Contact section------------>
+<section class="contact" id="contact" style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 60px 20px; background: linear-gradient(135deg, #000000, #0a2540); min-height: 100vh; gap: 30px; animation: fadeInSection 1.5s ease-out forwards;">
+
+    <style>
+        @keyframes fadeInSection {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glassMorph {
+            0% { backdrop-filter: blur(15px); }
+            100% { backdrop-filter: blur(20px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
+    <!-- Contact Text Side -->
+    <div class="contact-text" style="flex: 1; padding: 40px; background: rgba(10, 37, 64, 0.6); backdrop-filter: blur(15px); border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); color: #ffffff; animation: glassMorph 2s ease-in-out infinite alternate; max-width: 500px;">
+        <h2 style="font-size: 2.8em; color: #00bfff; margin-bottom: 10px;">Contact <span style="color: #ffffff;">Me!</span></h2>
+        <h4 style="font-size: 1.3em; color: #00bfff; margin-bottom: 15px;">If you have any project in your mind.</h4>
+        <p style="font-size: 1.1em; line-height: 1.7; margin-bottom: 30px;">I'm a website Designer - creating bold & brave interface design for the companies.</p>
+
+        <div class="list" style="list-style: none; margin-bottom: 35px;">
+            <li style="margin-bottom: 15px;"><a href="tel:+917330742295" style="color: #00bfff; text-decoration: none; font-size: 1.1em; transition: color 0.3s ease;">+91 7330742295</a></li>
+            <li style="margin-bottom: 15px;"><a href="mailto:havyamshp@gmail.com" style="color: #00bfff; text-decoration: none; font-size: 1.1em; transition: color 0.3s ease;">havyamshp@gmail.com</a></li>
+        </div>
+
+        <div class="contact-icons" style="display: flex; gap: 20px;">
+            <a href="https://www.facebook.com/havyamsh.havyamsh" style="color: #00bfff; font-size: 2em; transition: all 0.3s ease;" onmouseover="this.style.color='#ffffff'; this.style.transform='translateY(-5px) rotate(10deg)'" onmouseout="this.style.color='#00bfff'; this.style.transform='none'"><i class='bx bxl-facebook'></i></a>
+            <a href="https://x.com/havyamsh" style="color: #00bfff; font-size: 2em; transition: all 0.3s ease;" onmouseover="this.style.color='#ffffff'; this.style.transform='translateY(-5px) rotate(10deg)'" onmouseout="this.style.color='#00bfff'; this.style.transform='none'"><i class='bx bxl-twitter'></i></a>
+            <a href="https://www.instagram.com/_orochi_genshin_2716/" style="color: #00bfff; font-size: 2em; transition: all 0.3s ease;" onmouseover="this.style.color='#ffffff'; this.style.transform='translateY(-5px) rotate(10deg)'" onmouseout="this.style.color='#00bfff'; this.style.transform='none'"><i class='bx bxl-instagram-alt'></i></a>
+        </div>
+    </div>
+
+    <!-- Contact Form Side -->
+    <div class="contact-form" style="flex: 1; padding: 40px; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(15px); border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); animation: glassMorph 2s ease-in-out infinite alternate; max-width: 500px;">
+        <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column;">
+            <input type="hidden" name="access_key" value="81d375cd-e224-4588-b6a8-0a870c7c3c06">
+            <input type="text" name="name" placeholder="Your Name" required style="margin-bottom: 18px; padding: 15px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1em; transition: box-shadow 0.3s ease;" onfocus="this.style.boxShadow='0 0 15px #00bfff'" onblur="this.style.boxShadow='none'">
+            <input type="email" name="email" placeholder="Your Email" required style="margin-bottom: 18px; padding: 15px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1em; transition: box-shadow 0.3s ease;" onfocus="this.style.boxShadow='0 0 15px #00bfff'" onblur="this.style.boxShadow='none'">
+            <input type="number" name="phone" placeholder="Your Mobile Number" required style="margin-bottom: 18px; padding: 15px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1em; transition: box-shadow 0.3s ease;" onfocus="this.style.boxShadow='0 0 15px #00bfff'" onblur="this.style.boxShadow='none'">
+            <textarea name="message" cols="35" rows="10" placeholder="How Can I Help You" required style="margin-bottom: 25px; padding: 15px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1em; resize: none; transition: box-shadow 0.3s ease;" onfocus="this.style.boxShadow='0 0 15px #00bfff'" onblur="this.style.boxShadow='none'"></textarea>
+            <input type="submit" value="Send Message" class="submit" style="padding: 15px; border: none; border-radius: 10px; background: #00bfff; color: #000000; font-weight: bold; font-size: 1.1em; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#ffffff'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#00bfff'; this.style.transform='scale(1)'">
+        </form>
+    </div>
+</section>
+
+<!-- Note: Include Boxicons CDN in your <head> for icons to work -->
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+<!---------End Section---------->
+<section class="end">
+	<div class="last-text">
+		<p></p>
+	</div>
+	<div class="top">
+		<a href="#"><i class='bx bx-up-arrow-alt' ></i></a>
+	</div>
+</section>
+
+
+</body>
+</html>
